@@ -6,19 +6,29 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-fetch('places.json')
-  .then(res => res.json())
-  .then(places => {
-    places.forEach(p => {
-      L.marker([p.lat, p.lon]).addTo(map).bindPopup(p.name);
-    });
-  });
-
-// Sound setup
-const sound = new Audio('sounds/target.mp3');
-
 // Player marker reference
 let playerMarker = null;
+
+// Load places
+let places = [];
+fetch('places.json')
+  .then(res => res.json())
+  .then(data => {
+    places = data;
+
+    places.forEach(p => {
+      // Add marker
+      L.marker([p.lat, p.lon]).addTo(map).bindPopup(p.name);
+
+      // Add radius circle
+      L.circle([p.lat, p.lon], {
+        radius: p.radius,
+        color: 'blue',
+        fillColor: '#30f',
+        fillOpacity: 0.1
+      }).addTo(map);
+    });
+  });
 
 // Distance function (Haversine)
 function distance(lat1, lon1, lat2, lon2) {
@@ -35,23 +45,39 @@ function distance(lat1, lon1, lat2, lon2) {
   return R * c;
 }
 
-// Watch player location
+// Track which places were triggered
+const triggeredPlaces = new Set();
+
+// Watch player position
 navigator.geolocation.watchPosition(pos => {
   const { latitude, longitude } = pos.coords;
 
   if (!playerMarker) {
-    playerMarker = L.marker([latitude, longitude]).addTo(map).bindPopup("You are here");
+    playerMarker = L.marker([latitude, longitude]).addTo(map).bindPopup("You");
   } else {
     playerMarker.setLatLng([latitude, longitude]);
   }
 
   map.setView([latitude, longitude]);
 
-  // Check distance to target
-  const dist = distance(latitude, longitude, target[0], target[1]);
-  if (dist < 30) { // within 30 meters
-    sound.play();
-  }
+  // Check all places
+  places.forEach(p => {
+    const dist = distance(latitude, longitude, p.lat, p.lon);
+    if (dist < p.radius && !triggeredPlaces.has(p.name)) {
+      triggeredPlaces.add(p.name);
+
+      console.log(`Entered ${p.name}`);
+
+      // Play sound if defined
+      if (p.sound) {
+        const s = new Audio(p.sound);
+        s.play().catch(() => console.warn("User gesture needed to play sound"));
+      }
+
+      // Example logic
+      alert(`You entered ${p.name}!`);
+    }
+  });
 
 }, err => {
   console.error(err);

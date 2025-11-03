@@ -1,5 +1,20 @@
 [
-  { "name": "Picnic Place", "lat": 38.73745782349332, "lon": -9.154179291266168 },
-  { "name": "Gulbenkian Memorial", "lat": 38.737416379292966, "lon": -9.155751207922245 },
-  { "name": "Amphitheater", "lat": 38.736418336156326, "lon": -9.153914541296864 }
+  { "name": "Picnic Place",
+    "lat": 38.73745782349332, 
+    "lon": -9.154179291266168,
+    "radius": 50
+  },
+
+  { "name": "Gulbenkian Memorial",
+    "lat": 38.737416379292966, 
+    "lon": -9.155751207922245,
+    "radius": 20
+    
+  },
+
+  { "name": "Amphitheater",
+    "lat": 38.736418336156326,
+    "lon": -9.153914541296864,
+    "radius": 30 
+  }
 ]
