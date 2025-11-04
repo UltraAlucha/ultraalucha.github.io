@@ -2,24 +2,28 @@
   { "name": "Picnic Place",
     "lat": 38.73745782349332, 
     "lon": -9.154179291266168,
-    "radius": 50
+    "radius": 50,
+    "sound": "forest.mp3"
   },
 
   { "name": "Gulbenkian Memorial",
     "lat": 38.737416379292966, 
     "lon": -9.155751207922245,
-    "radius": 20
+    "radius": 20,
+    "sound": "forest.mp3"
   },
 
   { "name": "Amphitheater",
     "lat": 38.736418336156326,
     "lon": -9.153914541296864,
-    "radius": 30 
+    "radius": 30,
+    "sound": "forest.mp3" 
   },
 
   { "name": "Test",
     "lat": 38.759417021504206,
     "lon": -9.154178944784256,
-    "radius": 10
+    "radius": 10,
+    "sound": "1 welcome.MP3"
   }
 ]
