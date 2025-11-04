@@ -16,6 +16,18 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Player marker reference
 let playerMarker = null;
 
+function showMessage(text, duration = 3000) {
+  const box = document.getElementById('message-box');
+  box.textContent = text;
+  box.style.opacity = 1;
+
+  // Hide after duration
+  setTimeout(() => {
+    box.style.opacity = 0;
+  }, duration);
+}
+
+
 // Load places
 let places = [];
 fetch('places.json')
@@ -81,11 +93,11 @@ navigator.geolocation.watchPosition(pos => {
         s.play().catch(() => console.warn("User gesture needed to play sound"));
       }
 
-      alert(`You entered ${p.name}!`);
+      showMessage(`You entered ${p.name}!`);
     }
   });
 
 }, err => {
   console.error(err);
-  alert("Please allow location access!");
+  showMessage(`You entered ${p.name}!`);
 }, { enableHighAccuracy: true });
