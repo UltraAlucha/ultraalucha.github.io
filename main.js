@@ -54,11 +54,12 @@ navigator.geolocation.watchPosition(pos => {
 
   if (!playerMarker) {
     playerMarker = L.marker([latitude, longitude]).addTo(map).bindPopup("You");
+
+    // Only center the map once when the marker is first created
+    map.setView([latitude, longitude]);
   } else {
     playerMarker.setLatLng([latitude, longitude]);
   }
-
-  map.setView([latitude, longitude]);
 
   // Check all places
   places.forEach(p => {
@@ -68,13 +69,11 @@ navigator.geolocation.watchPosition(pos => {
 
       console.log(`Entered ${p.name}`);
 
-      // Play sound if defined
       if (p.sound) {
         const s = new Audio(p.sound);
         s.play().catch(() => console.warn("User gesture needed to play sound"));
       }
 
-      // Example logic
       alert(`You entered ${p.name}!`);
     }
   });
