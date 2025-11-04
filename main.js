@@ -86,7 +86,7 @@ function distance(lat1, lon1, lat2, lon2) {
 }
 
 // ===========================
-// 📍 Player Tracking
+// 📍 Player Tracking with Enter/Exit Detection
 // ===========================
 let playerMarker = null;
 const triggeredPlaces = new Set();
@@ -106,23 +106,31 @@ navigator.geolocation.watchPosition(
       playerMarker.setLatLng([latitude, longitude]);
     }
 
-    // Check all places for entry
+    // Check all places for entry/exit
     places.forEach(p => {
       const dist = distance(latitude, longitude, p.lat, p.lon);
+      const inside = dist < p.radius;
 
-      if (dist < p.radius && !triggeredPlaces.has(p.name)) {
+      // ENTER
+      if (inside && !triggeredPlaces.has(p.name)) {
         triggeredPlaces.add(p.name);
         console.log(`Entered ${p.name}`);
 
-        // ✅ Play preloaded sound if available, otherwise create new
         const audio = audioCache[p.name] || new Audio(`sounds/${p.sound}`);
         if (audio) {
           audio.currentTime = 0;
           audio.play().catch(err => console.warn("Audio playback failed:", err));
         }
 
-        // ✅ Show nice message
         showMessage(`You entered ${p.name}!`);
+      }
+
+      // EXIT
+      if (!inside && triggeredPlaces.has(p.name)) {
+        triggeredPlaces.delete(p.name);
+        console.log(`Exited ${p.name}`);
+        // Optional:
+        // showMessage(`You left ${p.name}`);
       }
     });
   },
