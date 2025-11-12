@@ -44,7 +44,7 @@ fetch('places.json')
 
       // ✅ Preload sound if defined
       if (p.sound) {
-        const audio = new Audio(`sounds/${p.sound}`);
+        const audio = new Audio(`sounds-fixed/${p.sound}`);
         audioCache[p.name] = audio;
       }
     });
@@ -116,7 +116,7 @@ navigator.geolocation.watchPosition(
         triggeredPlaces.add(p.name);
         console.log(`Entered ${p.name}`);
 
-        const audio = audioCache[p.name] || new Audio(`sounds/${p.sound}`);
+        const audio = audioCache[p.name] || new Audio(`sounds-fixed/${p.sound}`);
         if (audio) {
           audio.currentTime = 0;
           audio.play().catch(err => console.warn("Audio playback failed:", err));
