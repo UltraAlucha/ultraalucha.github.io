@@ -142,6 +142,7 @@ navigator.geolocation.watchPosition(
   { enableHighAccuracy: true }
 );
 
+/*
 // ===========================
 // 🧟 Monster System
 // ===========================
@@ -247,4 +248,4 @@ function updateMonster() {
   if (monster.distance > monster.config.maxDistance * 0.8) {
     showMessage("⚠️ You feel a dark presence nearby...");
   }
-}
+    */
