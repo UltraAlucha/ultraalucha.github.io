@@ -3,67 +3,67 @@
     "lat": 38.73496304552871, 
     "lon": -9.152666172571363,
     "radius": 10,
-    "sound": "Phase1-1 welcome.MP3"
+    "sound": "Phase1-1 welcome.mp3"
   },
   { "name": "Sculpture",
     "lat": 38.73550305977828, 
     "lon": -9.15297977555498,
     "radius": 10,
-    "sound": "Phase2-1 observation node one.MP3"
+    "sound": "Phase2-1 observation node one.mp3"
   },
   { "name": "Amphitheater",
     "lat": 38.736354999999996, 
     "lon": -9.153991787797496,
     "radius": 10,
-    "sound": "Phase3-1 observation node two.MP3"
+    "sound": "Phase3-1 observation node two.mp3"
   }
   ,
   { "name": "Pond",
     "lat": 38.736354999999996, 
     "lon": -9.153529504282533,
     "radius": 10,
-    "sound": "Phase4-1 observation node three.MP3"
+    "sound": "Phase4-1 observation node three.mp3"
   }
   ,
   { "name": "Woman Statue",
     "lat": 38.736515639537785, 
     "lon": -9.15301300398547,
     "radius": 10,
-    "sound": "Phase5-1 observation node four.MP3"
+    "sound": "Phase5-1 observation node four.mp3"
   }
   ,
   { "name": "Big tree",
     "lat": 38.736850803120205, 
     "lon": -9.153119128647099,
     "radius": 10,
-    "sound": "Phase5-2 visible anomalies.MP3"
+    "sound": "Phase5-2 visible anomalies.mp3"
   }
   ,
   { "name": "Narrow Path",
     "lat": 38.737848171436625,
     "lon": -9.152779731692613,
     "radius": 10,
-    "sound": "Phase5-3 rule 8.MP3"
+    "sound": "Phase5-3 rule 8.mp3"
   }
   ,
   { "name": "dont stop.MP3",
     "lat": 38.73861191493061, 
     "lon": -9.153335371365372,
     "radius": 10,
-    "sound": "Phase5-4 rule 9.MP3"
+    "sound": "Phase5-4 rule 9.mp3"
   }
   ,
   { "name": "Museum Entrance",
     "lat": 38.73745289488937,
     "lon":  -9.15475604431966,
     "radius": 10,
-    "sound": "Phase5-5 record sound.MP3"
+    "sound": "Phase5-5 record sound.mp3"
   }
   ,
   { "name": "Museum Entrance",
     "lat": 38.73787975579209,
     "lon":  -9.155314018719062,
     "radius": 10,
-    "sound": "Phase5-6 kept listening.MP3"
+    "sound": "Phase5-6 kept listening.mp3"
   }
 ]
