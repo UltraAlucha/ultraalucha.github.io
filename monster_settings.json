@@ -1,0 +1,8 @@
+{
+  "maxDistance": 10,
+  "approachSpeed": 0.1,
+  "retreatSpeed": 0.1,
+  "idleThresholdMinutes": 3,
+  "farDistanceThresholdMeters": 500,
+  "updateIntervalSeconds": 1
+}
